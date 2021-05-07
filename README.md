@@ -3,5 +3,5 @@
 
 Terminal 실행 예시 
 ```
-main.py --model_type LSTM --num_epochs 30
+python main.py --model_type LSTM --num_epochs 30
 ```
