@@ -39,6 +39,7 @@ def main(args):
     print("\n[Predicting on Kaggle Trainset]")
     model.load_state_dict(torch.load('./{}_epoch_{}.pth'.format(args.model_type, best_epoch)))
     trainer.predict(loaders.predict_loader)
+    print("\n[Finish predicting! Now submit to Kaggle]")
 
 
 if __name__ == '__main__':
