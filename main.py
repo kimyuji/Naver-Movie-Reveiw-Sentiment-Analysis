@@ -46,15 +46,15 @@ if __name__ == '__main__':
     # arguments
     # Hyperparameters
     parser.add_argument("--num_epochs", default=20, type=int, help="The num of epochs for training")
-    parser.add_argument("--embedd_dim", default=128, type=int, help="The num of epochs for training")
-    parser.add_argument("--hidden_dim", default=256, type=int, help="The num of epochs for training")
-    parser.add_argument("--num_layers", default=3, type=int, help="The num of epochs for training")
-    parser.add_argument("--model_type", default="RNN", type=str, help="The num of epochs for training")
+    parser.add_argument("--embedd_dim", default=128, type=int, help="The num of embedding dimension in the model")
+    parser.add_argument("--hidden_dim", default=256, type=int, help="The num of hidden dimension in the model")
+    parser.add_argument("--num_layers", default=3, type=int, help="The num of layers in the model")
+    parser.add_argument("--model_type", default="RNN", type=str, help="Default : RNN, you can also set LSTM and GRU")
     parser.add_argument("--out_node", default=1, type=int, help="Binary Classification : 1, Multiclass classification : 2 or more")
-    parser.add_argument("--root", default="C:\\Users\\YUJIN\\Desktop\\A_WORKSPACE\\Kaggle\\1_NSMC Sentiment Analysis", type=str, help="The num of epochs for training")
-    parser.add_argument("--train_path", default='.\\ratings_train.txt', type=str, help="The num of epochs for training")
-    parser.add_argument("--test_path", default='.\\ratings_test.txt', type=str, help="The num of epochs for training")
-    parser.add_argument("--predict_path", default='.\\ko_data.csv', type=str, help="The num of epochs for training")
+    parser.add_argument("--root", default="C:\\Users\\YUJIN\\Desktop\\A_WORKSPACE\\Kaggle\\1_NSMC Sentiment Analysis", type=str, help="root path (file directory)")
+    parser.add_argument("--train_path", default='.\\ratings_train.txt', type=str, help="train dataset")
+    parser.add_argument("--test_path", default='.\\ratings_test.txt', type=str, help="test dataset")
+    parser.add_argument("--predict_path", default='.\\ko_data.csv', type=str, help="Kaggle dataset to predict")
     args = parser.parse_args()
     
     main(args)
