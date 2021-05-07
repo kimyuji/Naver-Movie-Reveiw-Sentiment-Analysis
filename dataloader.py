@@ -1,39 +1,12 @@
-#%%
 import os
 import numpy as np
 import pandas as pd
 from torchtext.legacy import data # batchify할때 이용
 import torch
-# from transformers import PreTrainedTokenizer
-#import konlpy
-#from konlpy.tag import Okt ; okt=Okt() # 한국어 자연어 처리기
 import re
 import nltk # 많은 문장을 처리하기 위한 토큰화                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     모듈  # PunktSentenceTokenizer(Punkt) class
 from nltk.tokenize import word_tokenize # 단어 단위 토큰화
-# load data
-#train_data = pd.read_csv(path+'\\Kaggle\\1_NSMC Sentiment Analysis\\ratings_train.txt', sep='\t', quoting=3)
-#test_data = pd.read_csv(path+'\\Kaggle\\1_NSMC Sentiment Analysis\\ratings_test.txt', sep='\t', quoting=3)
-# 불용어 사전
-#stopword_100 = pd.read_csv(path+'\\Kaggle\\1_NSMC Sentiment Analysis\\한국어불용어100.txt',sep='\t',header=None)
 
-#%%
-# # 전처리 과정 함수화 
-# def preprocessing(data,stopword):
-#   # 특수문자 제거
-#   rm = re.compile('[:;\'\"\[\]\(\)\.,@]')
-#   rm_data = data.astype(str).apply(lambda x: re.sub(rm, '', x))
-#   # 토큰화
-#   word_token = [word_tokenize(x) for x in rm_data]
-#   remove_stopwords_tokens = []
-#   # 불용어 제거
-#   for sentence in word_token:
-#       temp = []
-#       for word in sentence:
-#           if word not in stopword:
-#               temp.append(word)
-#       remove_stopwords_tokens.append(temp)
-#   return remove_stopwords_tokens
-#%%
 """## 2. Batchify"""
 class CustomLoader(object):
     def __init__(
@@ -133,20 +106,3 @@ class CustomLoader(object):
 
         self.label.build_vocab(train)
         self.text.build_vocab(train, max_size=max_vocab, min_freq=min_freq) # vocabulary set build
-#%%
-# loaders = CustomLoader(
-#     train_path=os.getcwd()+'\\ratings_train.txt',
-#     batch_size=256,
-#     valid_ratio=.2,
-#     device=1,
-#     max_vocab=999999,
-#     min_freq=5,
-# )
-#%%
-# print("|train|=%d" % len(loaders.train_loader.dataset))
-# print("|valid|=%d" % len(loaders.valid_loader.dataset))
-
-# print("|vocab|=%d" % len(loaders.text.vocab))
-# print("|label|=%d" % len(loaders.label.vocab))
-
-# %%
