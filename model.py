@@ -1,10 +1,9 @@
-#%% 
+
 import pandas as pd
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import re
-#%% 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 class NSMC_classifier(nn.Module):
@@ -40,6 +39,6 @@ class NSMC_classifier(nn.Module):
             raise # 에러 발생시킴
 
         out = self.dropout(out)
-        out = self.fc(out[:,-1,:]) # 마지막것만
+        out = self.fc(out[:,-1,:]) 
         out = self.sigmoid(out)
         return out
