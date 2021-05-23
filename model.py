@@ -9,7 +9,6 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 class NSMC_classifier(nn.Module):
     def __init__(self, num_vocab, embedding_dim, hidden_dim, num_layers, out_node, drop_percent=0.2, model="RNN"):  # RNN LSTM GRU를 모두 쓰기 위해서 넣은 option이다. RNN을 default로 넣음
         super(NSMC_classifier, self).__init__()
-        # 변수 다 설정
         self.model = model
         self.num_vocab = num_vocab
         # embedding layer: embedding_dim 맞추기
@@ -19,7 +18,7 @@ class NSMC_classifier(nn.Module):
         self.gru = nn.GRU(embedding_dim, hidden_dim, num_layers, batch_first=True)
         self.dropout = nn.Dropout(drop_percent)
 
-        self.fc = nn.Linear(hidden_dim, out_node) # binary이기 때문에 out_node = 1 (sigmoid를 통해 0,1사이 값 출력)
+        self.fc = nn.Linear(hidden_dim, out_node) # out_node = 1 (binary)
         self.sigmoid = nn.Sigmoid()
 
 
