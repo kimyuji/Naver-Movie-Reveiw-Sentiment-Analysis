@@ -13,10 +13,10 @@ class NSMC_classifier(nn.Module):
         self.model = model
         self.num_vocab = num_vocab
         # embedding layer: embedding_dim 맞추기
-        self.embed = nn.Embedding(num_embeddings=num_vocab, embedding_dim=embedding_dim)
-        self.rnn = nn.RNN(input_size=embedding_dim, hidden_size=hidden_dim, num_layers=num_layers, batch_first=True)
-        self.lstm = nn.LSTM(input_size=embedding_dim, hidden_size=hidden_dim, num_layers=num_layers, batch_first=True)
-        self.gru = nn.GRU(input_size=embedding_dim, hidden_size=hidden_dim, num_layers=num_layers, batch_first=True)
+        self.embed = nn.Embedding(num_vocab, embedding_dim)
+        self.rnn = nn.RNN(embedding_dim, hidden_dim, num_layers, batch_first=True)
+        self.lstm = nn.LSTM(embedding_dim, hidden_dim, num_layers, batch_first=True)
+        self.gru = nn.GRU(embedding_dim, hidden_dim, num_layers, batch_first=True)
         self.dropout = nn.Dropout(drop_percent)
 
         self.fc = nn.Linear(hidden_dim, out_node) # binary이기 때문에 out_node = 1 (sigmoid를 통해 0,1사이 값 출력)
