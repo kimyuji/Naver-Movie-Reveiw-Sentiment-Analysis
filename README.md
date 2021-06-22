@@ -6,7 +6,7 @@
  ### 3. Transforemer
  ### 4. KoBERT 
  
- Datasets and description are available here. [NSMC](https://github.com/e9t/nsmc)
+ Dataset with description is available here. [NSMC](https://github.com/e9t/nsmc)
  
 
 Terminal 실행 예시 
