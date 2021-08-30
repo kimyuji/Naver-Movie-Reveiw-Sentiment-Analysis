@@ -3,7 +3,7 @@
  
  ### 1. RNN / LSTM / GRU ✔️
  ### 2. Self-Attention ✔️
- ### 3. Transforemer
+ ### 3. Transformer
  ### 4. KoBERT 
  
  Dataset with description is available here. [NSMC](https://github.com/e9t/nsmc)
